@@ -11,58 +11,77 @@
 </head>
 
 <body>
-    <h1>Edit Team</h1>
-    <form id="team-form" method="post">
-        {% csrf_token %}
-        <label for="team-name">Team Name:</label>
-        <input type="text" id="team-name" name="team-name" required>
+    <div class="container">
+        <h1>Edit Team</h1>
+        <form id="team-form" method="post">
+            {% csrf_token %}
+            <div class="team-name-section">
+                <label for="team-name">Team Name:</label>
+                <input type="text" id="team-name" name="team-name" required>
+            </div>
 
-        <div class="pokemon-grid">
-            {% for i in "123456" %}
-            <div class="pokemon-slot">
-                <label for="pokemon-name-{{ i }}">Pokemon {{ i }}:</label>
-                <select id="pokemon-name-{{ i }}" name="pokemon-name-{{ i }}" required></select>
+            <div class="pokemon-grid">
+                {% for i in "123456" %}
+                <div class="pokemon-slot">
+                    <div class="pokemon-header">
+                        <div class="sprite-container">
+                            <img id="sprite-{{ i }}" src="" alt="Pokemon sprite" class="pokemon-sprite">
+                        </div>
+                        <div class="pokemon-select">
+                            <label for="pokemon-name-{{ i }}">Pokemon {{ i }}:</label>
+                            <select id="pokemon-name-{{ i }}" name="pokemon-name-{{ i }}" required></select>
+                        </div>
+                    </div>
 
-                <div class="moves">
-                    <div class="move">
-                        <label for="move-1-{{ i }}">Move 1:</label>
-                        <select id="move-1-{{ i }}" name="move-1-{{ i }}" required></select>
+                    <div class="moves">
+                        <div class="move">
+                            <label for="move-1-{{ i }}">Move 1:</label>
+                            <select id="move-1-{{ i }}" name="move-1-{{ i }}" required></select>
+                        </div>
+                        <div class="move">
+                            <label for="move-2-{{ i }}">Move 2:</label>
+                            <select id="move-2-{{ i }}" name="move-2-{{ i }}" required></select>
+                        </div>
+                        <div class="move">
+                            <label for="move-3-{{ i }}">Move 3:</label>
+                            <select id="move-3-{{ i }}" name="move-3-{{ i }}" required></select>
+                        </div>
+                        <div class="move">
+                            <label for="move-4-{{ i }}">Move 4:</label>
+                            <select id="move-4-{{ i }}" name="move-4-{{ i }}" required></select>
+                        </div>
                     </div>
-                    <div class="move">
-                        <label for="move-2-{{ i }}">Move 2:</label>
-                        <select id="move-2-{{ i }}" name="move-2-{{ i }}" required></select>
-                    </div>
-                    <div class="move">
-                        <label for="move-3-{{ i }}">Move 3:</label>
-                        <select id="move-3-{{ i }}" name="move-3-{{ i }}" required></select>
-                    </div>
-                    <div class="move">
-                        <label for="move-4-{{ i }}">Move 4:</label>
-                        <select id="move-4-{{ i }}" name="move-4-{{ i }}" required></select>
+
+                    <div class="pokemon-details">
+                        <div class="detail-row">
+                            <label for="ability-{{ i }}">Ability:</label>
+                            <select id="ability-{{ i }}" name="ability-{{ i }}" required>
+                                <option value="">Select Ability</option>
+                                {% for ability in abilities %}
+                                <option value="{{ ability.name }}">{{ ability.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="detail-row">
+                            <label for="item-{{ i }}">Item:</label>
+                            <select id="item-{{ i }}" name="item-{{ i }}" required>
+                                <option value="">Select Item</option>
+                                {% for item in items %}
+                                <option value="{{ item.name }}">{{ item.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
                     </div>
                 </div>
-
-                <label for="ability-{{ i }}">Ability:</label>
-                <select id="ability-{{ i }}" name="ability-{{ i }}" required>
-                    <option value="">Select Ability</option>
-                    {% for ability in abilities %}
-                    <option value="{{ ability.name }}">{{ ability.name }}</option>
-                    {% endfor %}
-                </select>
-
-                <label for="item-{{ i }}">Item:</label>
-                <select id="item-{{ i }}" name="item-{{ i }}" required>
-                    <option value="">Select Item</option>
-                    {% for item in items %}
-                    <option value="{{ item.name }}">{{ item.name }}</option>
-                    {% endfor %}
-                </select>
+                {% endfor %}
             </div>
-            {% endfor %}
-        </div>
 
-        <input type="submit" value="Save Team">
-    </form>
+            <div class="submit-section">
+                <input type="submit" value="Save Team" class="save-button">
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>

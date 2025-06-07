@@ -26,7 +26,16 @@
             <h2>Your Teams</h2>
             <ul id="team-list">
                 {% for team in teams %}
-                <li data-team-id="{{ team.id }}">{{ team.name }}</li>
+                <li data-team-id="{{ team.id }}" class="team-item">
+                    <div class="team-name">{{ team.name }}</div>
+                    <div class="team-pokemon-sprites">
+                        {% for pokemon in team.team_pokemons.all|dictsort:"slot" %}
+                        <div class="pokemon-sprite-container">
+                            <img src="{{ pokemon.pokemon.sprite_url }}" alt="{{ pokemon.pokemon.name }}" class="pokemon-sprite" title="{{ pokemon.pokemon.name }}">
+                        </div>
+                        {% endfor %}
+                    </div>
+                </li>
                 {% endfor %}
             </ul>
         </div>
@@ -35,7 +44,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const teamList = document.getElementById('team-list');
-            teamList.querySelectorAll('li').forEach(item => {
+            teamList.querySelectorAll('.team-item').forEach(item => {
                 item.addEventListener('click', () => {
                     const teamId = item.getAttribute('data-team-id');
                     window.location.href = "{% url 'edit_team_with_id' team_id=0 %}".replace('0', teamId);

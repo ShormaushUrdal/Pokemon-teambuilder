@@ -1,39 +1,39 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome to Competitive Pokemon</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
+    <link rel="stylesheet" type="text/css" href="./static/css/style.css" />
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <header>
-            <h1>Welcome to Competitive Pokemon</h1>
-        </header>
-        <div class="box">
-            <div class="welcome-box">
-                <h2>Explore the world of Pokemon battles!</h2>
-            </div>
-            <div class="login-box">
-                {% if user.is_authenticated %}
-                <div class="loggedin">
-                    <p>Welcome back, {{ user.username }}!</p>
-                    <a href="{% url 'dashboard' %}" class="dashboard-link">Go to Dashboard</a>
-                    <a href="{% url 'account_logout' %}" class="logout-link">Logout</a>
-                </div>
-                {% else %}
-                <div class="loggedout">
-                    <p>Please log in to access more features.</p>
-                    <a href="{% url 'account_login' %}" class="login-link">Login</a>
-                </div>
-                {% endif %}
-            </div>
+      <header>
+        <h1>Welcome to Competitive Pokemon</h1>
+      </header>
+      <div class="box">
+        <div class="welcome-box">
+          <h2>Explore the world of Pokemon battles!</h2>
         </div>
+        <div class="login-box">
+          {% if user.is_authenticated %}
+          <div class="loggedin">
+            <p>Welcome back, {{ user.username }}!</p>
+            <a href="{% url 'dashboard' %}" class="dashboard-link"
+              >Go to Dashboard</a
+            >
+            <a href="{% url 'account_logout' %}" class="logout-link">Logout</a>
+          </div>
+          {% else %}
+          <div class="loggedout">
+            <p>Please log in to access more features.</p>
+            <a href="{% url 'account_login' %}" class="login-link">Login</a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>

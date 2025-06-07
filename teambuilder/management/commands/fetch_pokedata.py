@@ -139,5 +139,5 @@ class Command(BaseCommand):
                     category=move_details['damage_class']['name']
                 )
                 p.moves.add(m)
-
         p.save()
+

@@ -1,7 +1,7 @@
 from django.urls import path
 from django.contrib import admin 
-from .views import battle_home
+from .views import battle
 
 urlpatterns = [
-    path('', battle_home, name = 'battle_home'),
+    path('', battle , name = 'battle_home'),
 ]

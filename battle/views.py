@@ -1,4 +1,4 @@
 from django.shortcuts import render
 
-def battle_home(request):
+def battle(request):
     return render(request, 'battle_home.html')

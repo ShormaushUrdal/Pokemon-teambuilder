@@ -117,7 +117,8 @@ def get_pokemon_details(request, pokemon_name):
         abilities = pokemon.abilities.values('name')
         data = {
             'moves': list(moves),
-            'abilities': list(abilities)
+            'abilities': list(abilities),
+            'sprite_url': pokemon.sprite_url
         }
         return JsonResponse(data)
     except Pokemon.DoesNotExist:
