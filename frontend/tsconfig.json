@@ -1,0 +1,14 @@
+{
+  "files": [],
+  "compilerOptions": {
+    "moduleResolution": "Bundler", // or "Node16" / "NodeNext"
+    "types": ["node"],
+    "paths": {
+      "~/*": ["./app/*"] 
+    }
+  },
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
