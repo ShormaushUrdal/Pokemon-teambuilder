@@ -27,12 +27,29 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'allauth',
     'allauth.account',
+    'allauth.headless',
     'allauth.socialaccount',
     'battle',
     'teambuilder',
 ]
 
+HEADLESS_FRONTEND_URLS = {
+    "account_confirm_email": "http://localhost:5173/confirm-email/{key}",
+    "account_reset_password_from_key": "http://localhost:5173/password/reset/key/{key}",
+}
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173", 
+]
+
+CORS_ALLOW_CREDENTIALS = True
+CSRF_COOKIE_HTTPONLY = False
+CSRF_TRUSTED_ORIGINS = ["http://localhost:5173"]
+ALLAUTH_HEADLESS_ONLY = True
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -107,11 +124,12 @@ USE_TZ = True
 
 
 # Additional settings for Django Allauth
-LOGIN_REDIRECT_URL = '/dashboard/'
-LOGOUT_REDIRECT_URL = '/'
-ACCOUNT_EMAIL_VERIFICATION = 'none'
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME_REQUIRED = False
+LOGIN_REDIRECT_URL = 'http://localhost:5173/dashboard'
+LOGOUT_REDIRECT_URL = 'http://localhost:5173/'
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_EMAIL_VERIFICATION = False
+ACCOUNT_EMAIL_REQUIRED = False
+ACCOUNT_USERNAME_REQUIRED = True
 
 # Site ID for Django Allauth
 SITE_ID = 1

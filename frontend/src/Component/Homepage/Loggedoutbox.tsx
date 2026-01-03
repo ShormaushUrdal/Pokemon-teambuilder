@@ -8,7 +8,7 @@ export default function Loggedoutbox() {
                     Please login to view and edit your Pokémon teams!
                 </p>
                 <a 
-                    href="/login" 
+                    href="http://127.0.0.1:8000/accounts/login/" 
                     className="inline-block m-2 p-4 bg-red-500 hover:bg-red-800 text-white text-xl font-bold rounded-full transform hover:-translate-y-1"
                 >
                     Login

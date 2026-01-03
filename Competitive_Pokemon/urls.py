@@ -8,8 +8,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('battle.urls')),  
     path('teambuilder/', include('teambuilder.urls')),
-    path('accounts/', include('allauth.urls')), 
+    path('accounts/', include('allauth.urls')),  
     path('dashboard/', dashboard, name='dashboard'),
+    path("_allauth/", include("allauth.headless.urls")),
 ]
 
 if(settings.DEBUG):
