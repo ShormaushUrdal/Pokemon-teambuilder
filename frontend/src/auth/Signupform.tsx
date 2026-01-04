@@ -6,7 +6,7 @@ export const SignupForm: React.FC = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState<string | null>(null);
-    const { checkAuth } = useAuth(); // To refresh the UI after signup
+    const { checkAuth } = useAuth(); 
 
     const handleSignup = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -68,7 +68,7 @@ export const SignupForm: React.FC = () => {
                 className="p-2 bg-slate-700 text-white rounded border border-slate-600 focus:border-cyan-500 outline-none"
                 required 
             />
-            <button type="submit" className="bg-cyan-600 hover:bg-cyan-500 text-white font-bold p-2 rounded transition">
+            <button type="submit" className="bg-cyan-600 hover:bg-cyan-500 text-white font-bold p-2  cursor-pointer">
                 Register Trainer
             </button>
         </form>

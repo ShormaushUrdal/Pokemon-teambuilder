@@ -3,7 +3,7 @@ import { useAuth} from "../../auth/Authcontext"
 import { Link } from "react-router";
 import { SignupForm } from "../../auth/Signupform";
 export default function Loginbox() {
-    const { isAuthenticated, user, loading } = useAuth();
+    const { isAuthenticated, user, loading, logout } = useAuth();
     if (loading) return null;
 
     return (
@@ -16,7 +16,7 @@ export default function Loginbox() {
                 </p>
             </div>
             
-            <br />
+            <br/>
 
             {isAuthenticated ? (
                 <div className="p-6 m-3 bg-slate-800 rounded-xl border border-green-500 text-center">
@@ -28,7 +28,13 @@ export default function Loginbox() {
                         >
                             My Teams
                         </Link>
-                        <button className="bg-red-500 hover:bg-red-400 text-white px-4 py-2 rounded">
+                        <button 
+                            type = "button"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                logout();
+                            }}
+                            className="cursor-pointer bg-red-500 hover:bg-red-400 text-white px-4 py-2 rounded">
                             Logout
                         </button>
                     </div>

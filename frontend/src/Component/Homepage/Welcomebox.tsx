@@ -8,7 +8,7 @@ export default function Welcomebox() {
                 Welcome to Competitive Pokémon
             </h1>
             
-            <p className="text-lg text-white mb-6">
+            <p className="text-1xl text-white mb-6">
                 Competitive Pokémon is a game of information and strategy. Unlike the main playthrough, winning in a competitive setting (like the Smogon formats) requires a deep knowledge of your Pokémon's movesets, strategies and the possible attacks that the opposing Pokémon 
                 can inflict.
             </p>

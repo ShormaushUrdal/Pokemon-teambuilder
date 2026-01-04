@@ -1,6 +1,6 @@
 export default function Smogonbox() {
     return (
-        <div className="text-white p-2">
+        <div className="text-white p-2 text-lg">
             Check out this website for the latest metagames and strategies regarding building 
             various teams for Competitive Pokémon. Generally, what I like to do is build a team
             around one or two Pokemon, others complementing the main attacking Pokemon.

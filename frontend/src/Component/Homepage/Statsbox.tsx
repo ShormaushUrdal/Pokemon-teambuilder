@@ -1,6 +1,6 @@
 export default function Statsbox() {
     return  (
-        <div className = "text-white p-2">
+        <div className = "text-white p-2 text-lg">
             There are several Pokémons with its own unique advantages and disadvantages. Each Pokémon has a set of 6 stats, a slot for holding item, and an ability. There are several types, type matchups, natures and other mechanics like EVs, IVs that you need to keep in mind. Check out this website for looking up any stats! 
             <br/> <br/>
             <a 

@@ -60,7 +60,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         className="border p-2"
         placeholder="Password" 
       />
-      <button type="submit" className="bg-blue-500 text-white p-2">Login</button>
+      <button type="submit" className="bg-blue-500 text-white p-2 cursor-pointer">Login</button>
     </form>
   );
 };
